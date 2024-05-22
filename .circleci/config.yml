@@ -38,14 +38,14 @@ jobs:
             git config --global user.email "${CIRCLE_PROJECT_USERNAME}@gmail.com"
             git clone ${KERNEL_REPO} -b ${KERNEL_BRANCH} --depth=500 kernel
           environment:
-            KERNEL_REPO: https://github.com/Burhanverse/kernel
+            KERNEL_REPO: https://github.com/Burhanverse/kernel.git
             KERNEL_BRANCH: stable
       - run:
           name: Build
           command: |
             cd $CIRCLE_WORKING_DIRECTORY/kernel
-            wget https://raw.githubusercontent.com/orkunergun/build-kernel-circleci/main/config.env
-            wget https://raw.githubusercontent.com/orkunergun/build-kernel-circleci/main/kranul-build.sh && chmod +x ./kranul-build.sh
+            wget https://raw.githubusercontent.com/Rayen-Sa/Karnul-ci/main/config.env
+            wget https://raw.githubusercontent.com/Rayen-Sa/Karnul-ci/main/kranul-build.sh && chmod +x ./kranul-build.sh
             echo "Building kernel"
             ./kranul-build.sh
       - run:
