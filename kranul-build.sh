@@ -223,21 +223,10 @@ function kernelsu() {
       git submodule update --init; cd ${MainPath}/KernelSU; git pull origin main; cd ..
     fi
 }
-
-function zupload()
-{
-rm -rf AnyKernel	
-git clone --depth=1 https://github.com/AbzRaider/AnyKernel33 -b xm6768 AnyKernel
-cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
-cd AnyKernel
-zip -r9 [Proton]-FuckTunisia-v4.14.320-lava.zip *
-curl --upload-file "Test-OSS-KERNEL-XM6768-R.zip" https://free.keep.sh
-}
 getclang
 updateclang
 kernelsu
 compile
 zipping
-zupload
 END=$(date +"%s")
 DIFF=$(($END - $START))
